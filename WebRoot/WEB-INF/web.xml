@@ -19,7 +19,7 @@
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>GetBingImg2</servlet-name>
-    <url-pattern>/pic</url-pattern>
+    <url-pattern>/cache</url-pattern>
   </servlet-mapping>
 
 </web-app>

@@ -1,7 +1,7 @@
 package cn.chioy.work;
 
 import java.io.IOException;
-import java.util.Date;
+import java.util.Calendar;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -9,21 +9,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.jboss.weld.context.ApplicationContext;
-
-import cn.chioy.util.BingImage;
+import cn.chioy.util.BingImageLoader;
 
 public class GetBingImg2 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private static Calendar c;
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		ServletContext context = request.getServletContext();
-		Date date = new Date();
+		String pathname = "/tmp/bj.jpg";
+		String prefix= "http://s.cn.bing.net";
+		System.out.println(pathname);
+		BingImageLoader loader = new BingImageLoader();
+		loader.setImgUrl(prefix + loader.getImgUrl());
+		c = Calendar.getInstance();
 		Integer day = null;
 		day = (Integer) context.getAttribute("day");
-		if (day == date.getDay()) {
-			request.getRequestDispatcher("pics/bg.jpg").forward(request, response);
+		if (day == c.get(Calendar.DAY_OF_WEEK)) {
+			loader.putPicFromCache(response, pathname);
 		} else {
-			init();
+			loader.cacheTo(pathname);
 		}
 
 	}
@@ -32,16 +37,9 @@ public class GetBingImg2 extends HttpServlet {
 	public void init() throws ServletException {
 		// TODO Auto-generated method stub
 		super.init();
+		c = Calendar.getInstance();
 		ServletContext contex = getServletContext();
-		contex.setAttribute("day", new Date().getDay());
-		BingImage img = new BingImage();
-		String prefix = "http://s.cn.bing.net";
-		//String prefix = "";
-		String realPath = contex.getRealPath("")+"pics\\bg.jpg";
-		String url = prefix + img.getImageUrl(); 
-		System.out.println(realPath);
-		System.out.println(url);
-		img.putImage(url,realPath);
+		contex.setAttribute("day", c.get(Calendar.DAY_OF_WEEK));
 	}
 
 }

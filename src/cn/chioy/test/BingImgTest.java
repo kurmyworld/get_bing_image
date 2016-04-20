@@ -1,22 +1,24 @@
 package cn.chioy.test;
 
+import java.util.Calendar;
+
 import org.junit.Test;
 
-import cn.chioy.util.BingImage;
+import cn.chioy.util.BingImageLoader;
 
 public class BingImgTest {
-	private BingImage bingImage;
 	@Test
-	public void test_getImage() {
-		bingImage = new BingImage();
-		String url = bingImage.getImageUrl();
-		System.out.println(url);
+	public void test_cache(){
+		BingImageLoader b = new BingImageLoader();
+		System.out.println(b.getImgUrl());
+		//b.cacheTo("d:/a.jpg");
 	}
 	@Test
-	public void test_putImage() {
-		bingImage = new BingImage();
-		String imageUrl = bingImage.getImageUrl();
-		System.out.println(imageUrl);
-		bingImage.putImage(imageUrl, "./WebRoot/background.jpg");
+	public void test_calendar(){
+		Calendar c = Calendar.getInstance();
+		System.out.println(c.get(Calendar.DAY_OF_YEAR));
+		System.out.println(c.get(Calendar.DAY_OF_MONTH));
+		System.out.println(c.get(Calendar.DAY_OF_WEEK_IN_MONTH));
+		System.out.println(c.get(Calendar.DAY_OF_WEEK));
 	}
 }
