@@ -15,7 +15,7 @@
 
   <servlet-mapping>
     <servlet-name>GetBingImg</servlet-name>
-    <url-pattern>/url</url-pattern>
+    <url-pattern>/URL</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>GetBingImg2</servlet-name>

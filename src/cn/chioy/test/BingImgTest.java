@@ -4,14 +4,14 @@ import java.util.Calendar;
 
 import org.junit.Test;
 
-import cn.chioy.util.BingImageLoader;
+import cn.chioy.img.BingImageLoader;
 
 public class BingImgTest {
 	@Test
 	public void test_cache(){
 		BingImageLoader b = new BingImageLoader();
-		System.out.println(b.getImgUrl());
-		//b.cacheTo("d:/a.jpg");
+		System.out.println(b.getImgURL());
+		
 	}
 	@Test
 	public void test_calendar(){
