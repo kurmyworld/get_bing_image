@@ -67,6 +67,9 @@ public class GetBingImg2 extends HttpServlet {
 
 		Calendar c = Calendar.getInstance();
 		contex.setAttribute("day", c.get(Calendar.DAY_OF_WEEK));
+		
+		BingImageLoader b = new BingImageLoader();
+		b.cacheTo(mFile);
 		mLog.info(mFile);
 
 	}
