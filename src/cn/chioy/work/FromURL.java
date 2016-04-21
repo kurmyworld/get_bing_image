@@ -12,7 +12,7 @@ import org.apache.commons.logging.impl.SimpleLog;
 
 import cn.chioy.img.BingImageLoader;
 
-public class GetBingImg extends HttpServlet {
+public class FromURL extends HttpServlet {
 	private static final String LINUX_PREFIX = "http://s.cn.bing.net";
 	private static final long serialVersionUID = 1L;
 	private static SimpleLog mLog = new SimpleLog("FromURL");

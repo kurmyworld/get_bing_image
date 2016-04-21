@@ -14,7 +14,7 @@ import org.apache.commons.logging.impl.SimpleLog;
 
 import cn.chioy.img.BingImageLoader;
 
-public class GetBingImg2 extends HttpServlet {
+public class FromCache extends HttpServlet {
 	private static final String WINDOWS_FILE_PATH = "d:/bj.jpg";
 	private static final String LINUX_FILE_PATH = "/tmp/bj.jpg";
 	private static final String LINUX_PREFIX = "http://s.cn.bing.net";
